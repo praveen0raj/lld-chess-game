@@ -1,0 +1,67 @@
+@startuml
+
+class Board{
+    Box[][] boxes;
+}
+
+class Box{
+    Piece currentPiece;
+    Boolean isEmpty;
+}
+
+abstract class Piece{
+    String id;
+    Color color;
+    Box currentBox;
+    Player player;
+    PieceType pieceType;
+}
+
+class KingPiece extends Piece
+class QueenPiece extends Piece
+class PawnPiece extends Piece
+class RookPiece extends Piece
+class KnightPiece extends Piece
+class BishopPiece extends Piece
+
+enum color{
+ Black,
+ White;
+}
+
+enum PieceType{
+ KING
+}
+
+
+class Player{
+    String id;
+    String name;
+    Color color;
+    List<Piece> pieces;
+}
+
+class Move{
+    String id;
+    Box startBox;
+    Box endBox;
+    Player player;
+}
+
+class Game{
+    Board board;
+    Player[] players;
+    Player winPlayer;
+    List<Move> gameHistory;
+    GameStatus status;
+    LocalDateTime startTime;
+    LocalDateTime endTime;
+}
+
+enum GameStatus{
+    WIN,
+    DRAW
+}
+
+
+@enduml

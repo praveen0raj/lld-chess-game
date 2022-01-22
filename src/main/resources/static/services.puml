@@ -1,0 +1,22 @@
+@startuml
+interface PieceService{
+    abstract boolean canMove(Piece piece, Box destBox);
+    void update(Piece piece, Box destBox);
+}
+
+interface PlayerService{
+    Player createPlayer(String name, Color color);
+    Player getPlayer(String playerId);
+    boolean hasPiece(Player player, Piece piece);
+}
+
+interface DashboardService{
+    void update(String content);
+}
+
+interface GameService{
+    void initBoard();
+    void playGame();
+}
+
+@enduml
